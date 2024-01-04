@@ -13,6 +13,7 @@ BackEnd позволяет получить доступ к виджету, со
 
 ## Авторизация
 
+```bash
 # https://verified-closely-eel.ngrok-free.app/auth/authorization_token
 # Перейдя по нему, произойдет редирект на кнопку amoCRM для предоставления доступа к Виджету интеграции.
 # После ввода регистрационных данных произойдет редирект на страницу
@@ -20,9 +21,11 @@ BackEnd позволяет получить доступ к виджету, со
 # В который, в качестве query параметра будет передан authorization_token, который будет обменян на access и refresh tokens.
 # Access token сохраняется в памяти приложения, а refresh token сохраняется в в ccokies с флагом httpOnly.
 # После этого становится доспупным раздел работы с контактами.
+```
 
 ## Контакты
 
+```bash
 # https://verified-closely-eel.ngrok-free.app/contacts/get-contact?name={sddf}&email={sdfggeee@mail.ru}&phone={98754732132}
 # Данный endpoint позволяет создать нового контакта. Если контакт с таким email и/или phone существует, то данные о нём обновляются. 
 # Затем происходит заключение сделки с этим контактом.
@@ -30,8 +33,11 @@ BackEnd позволяет получить доступ к виджету, со
 #
 # https://verified-closely-eel.ngrok-free.app/contacts/get-all-contacts
 # Данный endpoint позволяет увидеть список всех контактов.
+```
 
 ## Документация Swagger
 
+```bash
 # Документация Swagger доступна по следующему адресу: 
 # https://verified-closely-eel.ngrok-free.app/docs
+```
