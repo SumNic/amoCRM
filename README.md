@@ -5,69 +5,33 @@
 [circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
 [circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+  <p align="center">Интеграция backEnd созданного на NestJs  с amoCRM.</p>
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+BackEnd позволяет получить доступ к виджету, созданному в amoCRM, добавлять новые контакты, редактировать существующие, заключать сделки с контактами.
 
-## Installation
+## Авторизация
 
-```bash
-$ npm install
-```
+# https://verified-closely-eel.ngrok-free.app/auth/authorization_token
+# Перейдя по нему, произойдет редирект на кнопку amoCRM для предоставления доступа к Виджету интеграции.
+# После ввода регистрационных данных произойдет редирект на страницу
+# https://verified-closely-eel.ngrok-free.app/auth/access_token 
+# В который, в качестве query параметра будет передан authorization_token, который будет обменян на access и refresh tokens.
+# Access token сохраняется в памяти приложения, а refresh token сохраняется в в ccokies с флагом httpOnly.
+# После этого становится доспупным раздел работы с контактами.
 
-## Running the app
+## Контакты
 
-```bash
-# development
-$ npm run start
+# https://verified-closely-eel.ngrok-free.app/contacts/get-contact?name={sddf}&email={sdfggeee@mail.ru}&phone={98754732132}
+# Данный endpoint позволяет создать нового контакта. Если контакт с таким email и/или phone существует, то данные о нём обновляются. 
+# Затем происходит заключение сделки с этим контактом.
+# Поля name, email и phone обязательны к заполнению.
+#
+# https://verified-closely-eel.ngrok-free.app/contacts/get-all-contacts
+# Данный endpoint позволяет увидеть список всех контактов.
 
-# watch mode
-$ npm run start:dev
+## Документация Swagger
 
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+# Документация Swagger доступна по следующему адресу: 
+# https://verified-closely-eel.ngrok-free.app/docs
